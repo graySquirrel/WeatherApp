@@ -1,0 +1,75 @@
+ios-deploy fails because i need a valid ios dev cert installed.
+NB: when opening project with xcode, open the DIR, not the xcodeproj file!!
+need to wait for cable to do that.
+
+may have to add this to package.json
+  "optionalDependencies": { 
+    "ios-deploy": "^1.9.3" 
+  },
+
+https://quasar.dev/layout/grid/introduction-to-flexbox
+https://quasar.dev/style/spacing
+https://quasar.dev/style/typography
+https://quasar.dev/style/positioning
+https://quasar.dev/quasar-plugins/loading
+https://quasar.dev/options/platform-detection
+
+https://uigradients.com/#VerBlack
+http://dconnell.co.uk/#/resource/vscode
+https://material.io/resources/icons/?style=baseline
+https://pixabay.com/
+https://www.fillmurray.com/100/100
+
+icongenie generate -i app-icon.png --theme-color 96c93d --skip-trim
+
+// to get mac version in dev
+quasar dev -m electron`
+quasar build -m electron
+cd src-cordova
+cordova run ios --list
+cd ..
+quasar dev -m ios -e "iPhone-8, 14.3"
+NB: for ios on iPhone, need to run in http mode or it will give an insecure server error and never come off of the splash screen.
+NB2: to build for production, set build settings>signing>release to developer, then do quasar build -m ios.
+	it will FAIL, but if you scroll up and see BUILD SUCCEEDED, then you can run it from Xcode and it will load onto phone.
+
+quasar dev -m android
+debug simulator- go to chrome://inspect/#devices 
+
+sudo npm install -g ios-deploy // update something
+
+ App · ⚠️  If you want a different App name then remove Cordova support, edit productName field from package.json then add Cordova support again.
+
+//if you add to ./package.json then you can simply regen icons
+npm run icons
+
+https://app.pluralsight.com/library/courses/building-api-aspdotnet-core/table-of-contents
+https://www.udemy.com/course/weather-app-vue-js-quasar/learn/lecture/20136632#overview
+
+
+
+Available ios devices:
+Available ios virtual devices:
+Apple-Watch-Series-5-40mm, watchOS 7.2
+Apple-Watch-Series-5-44mm, watchOS 7.2
+Apple-Watch-Series-6-40mm, watchOS 7.2
+Apple-Watch-Series-6-44mm, watchOS 7.2
+iPhone-8, 14.3
+iPhone-8-Plus, 14.3
+iPhone-11, 14.3
+iPhone-11-Pro, 14.3
+iPhone-11-Pro-Max, 14.3
+iPhone-SE--2nd-generation-, 14.3
+iPhone-12-mini, 14.3
+iPhone-12, 14.3
+iPhone-12-Pro, 14.3
+iPhone-12-Pro-Max, 14.3
+iPod-touch--7th-generation-, 14.3
+iPad-Pro--9-7-inch-, 14.3
+iPad-Pro--11-inch---2nd-generation-, 14.3
+iPad-Pro--12-9-inch---4th-generation-, 14.3
+iPad--8th-generation-, 14.3
+iPad-Air--4th-generation-, 14.3
+Apple-TV-1080p, tvOS 14.3
+Apple-TV-4K-4K, tvOS 14.3
+Apple-TV-4K-1080p, tvOS 14.3

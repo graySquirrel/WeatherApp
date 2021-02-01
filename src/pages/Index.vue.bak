@@ -1,0 +1,104 @@
+<template>
+  <q-page padding>
+    <button 
+      style="position:absolute; right: 10px"
+        @click="counter++">
+      {{counter}}
+    </button>
+    <!-- :class="{ 'error' : message.length >15 }" -->
+    <input
+      v-model="message"
+      @keyup.esc="clearMessage"
+      @keyup.enter="alertMessage"
+      v-autofocus
+      :class="errorClass"
+      ref="messageInput"
+    />
+
+    <button @click="clearMessage">Clear</button>
+    <div>
+      {{ message.length }}
+    </div>
+    <h5 
+      v-if="message.length"
+      class="border-grey" >{{ message }}
+    </h5>
+    <h6 v-else>No message  </h6> 
+
+    <hr>
+
+    <p>Uppercase message: {{ messageUppercase }}</p>
+    <p>Lowercase message: {{ message | messageLowerCase }}</p>
+  </q-page>
+</template>
+
+
+<script>
+export default {
+  data() {
+    return {
+      message: "I love poop",
+      counter: 0
+    };
+  },
+  computed: {
+    messageUppercase() {
+      console.log("messageUppercase called")
+      return this.message.toUpperCase() + this.counter
+    },
+    errorClass() {
+      if (this.message.length > 15) {
+        return 'error'
+      } else {
+        return 'bg-green'
+      }
+    },
+    errorStyle() {
+      if (this.message.length > 15) {
+        return {
+          'color':'red',
+          'background':'pink'
+        }
+      }
+    }
+  },
+  methods: {
+    clearMessage() {
+      this.message = "";
+    },
+    alertMessage() {
+      alert(this.message);
+    }
+  },
+  filters: {
+    messageLowerCase(v) {
+      return v.toLowerCase()
+    }
+  },
+  directives: {
+    autofocus: {
+      inserted(el) {
+        el.focus()
+      }
+    }
+  },
+  mounted() {
+    console.log(this.$refs)
+    //this.$refs.messageInput.className = 'bg-green'
+  }
+}
+
+</script>
+
+<style >
+.border-grey {
+  border: 1px solid gray;
+}
+input, button {
+  font-size: 23px;
+}
+.error {
+  color: red;
+  background: pink;
+}
+</style>

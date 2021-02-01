@@ -1,0 +1,54 @@
+<template>
+  <q-page padding>
+    <ul>
+      <task @delete="deleteTask"
+        v-for="(task, index) in tasks"
+        :key="task.id"
+        :task="task"
+        :index="index"
+      >
+      </task>
+    </ul>
+  </q-page>
+</template>
+
+
+<script>
+export default {
+  data() {
+    return {
+      tasks: [
+        {
+          id: 0,
+          name: "goto shop",
+          dueDate: "2019/05/12",
+          dueTime: "18:30",
+        },
+        {
+          id: 1,
+          name: "get ship",
+          dueDate: "2019/05/13",
+          dueTime: "14:30",
+        },
+        {
+          id: 2,
+          name: "go home",
+          dueDate: "2019/05/14",
+          dueTime: "20:00",
+        },
+      ],
+    };
+  },
+  methods: {
+    deleteTask(index) {
+      this.tasks.splice(index, 1);
+    }
+  },
+  components: {
+    task: require("components/Task.vue").default,
+  },
+};
+</script>
+
+<style >
+</style>
