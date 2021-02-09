@@ -1,3 +1,6 @@
+  527  sips -s format png Ricochet_2.PNG --out Ricochet_2Out.PNG 
+  528  sips -s format jpg Ricochet_2.PNG --out Ricochet_2.jpg
+
 ios-deploy fails because i need a valid ios dev cert installed.
 NB: when opening project with xcode, open the DIR, not the xcodeproj file!!
 need to wait for cable to do that.
